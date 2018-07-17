@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06420FE47B500D75E57 /* AppDelegate.swift */; };
-		D5CED06720FE47B500D75E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06620FE47B500D75E57 /* ViewController.swift */; };
 		D5CED06A20FE47B500D75E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06820FE47B500D75E57 /* Main.storyboard */; };
 		D5CED06C20FE47B600D75E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06B20FE47B600D75E57 /* Assets.xcassets */; };
 		D5CED06F20FE47B600D75E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06D20FE47B600D75E57 /* LaunchScreen.storyboard */; };
 		D5CED07A20FE47B600D75E57 /* DoctorFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED07920FE47B600D75E57 /* DoctorFinderTests.swift */; };
+		D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* Begin PBXFileReference section */
 		D5CED06120FE47B500D75E57 /* DoctorFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED06420FE47B500D75E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5CED06620FE47B500D75E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D5CED06920FE47B500D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5CED06B20FE47B600D75E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5CED06E20FE47B600D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		D5CED07520FE47B600D75E57 /* DoctorFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoctorFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED07920FE47B600D75E57 /* DoctorFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorFinderTests.swift; sourceTree = "<group>"; };
 		D5CED07B20FE47B600D75E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +77,10 @@
 		D5CED06320FE47B500D75E57 /* DoctorFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D5CED08420FE57ED00D75E57 /* ViewController */,
 				D5CED06420FE47B500D75E57 /* AppDelegate.swift */,
-				D5CED06620FE47B500D75E57 /* ViewController.swift */,
-				D5CED06820FE47B500D75E57 /* Main.storyboard */,
 				D5CED06B20FE47B600D75E57 /* Assets.xcassets */,
+				D5CED06820FE47B500D75E57 /* Main.storyboard */,
 				D5CED06D20FE47B600D75E57 /* LaunchScreen.storyboard */,
 				D5CED07020FE47B600D75E57 /* Info.plist */,
 			);
@@ -94,6 +94,14 @@
 				D5CED07B20FE47B600D75E57 /* Info.plist */,
 			);
 			path = DoctorFinderTests;
+			sourceTree = "<group>";
+		};
+		D5CED08420FE57ED00D75E57 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5CED06720FE47B500D75E57 /* ViewController.swift in Sources */,
+				D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */,
 				D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
