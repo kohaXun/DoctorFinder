@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-143" y="87"/>
         </scene>
-        <!--Doctor Search View Controller-->
+        <!--DoctorFinder-->
         <scene sceneID="sRH-Z4-ctZ">
             <objects>
                 <viewController id="W2t-dD-lb6" customClass="DoctorSearchViewController" customModule="DoctorFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AOf-qz-IjB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CuR-4T-UkK"/>
+                    <navigationItem key="navigationItem" title="DoctorFinder" id="CuR-4T-UkK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeI-0Z-21r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
