@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,8 +56,92 @@
             </objects>
             <point key="canvasLocation" x="647" y="87"/>
         </scene>
+        <!--Doctor Search Results Component View Controller-->
+        <scene sceneID="TYf-67-Ttp">
+            <objects>
+                <viewController id="Opd-VJ-k8E" customClass="DoctorSearchResultsComponentViewController" customModule="DoctorFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tRz-hM-hAM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="169" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5vf-R3-gB7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="103" id="kjB-mg-RNF" customClass="DoctorSearchResultViewCell" customModule="DoctorFinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="103"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjB-mg-RNF" id="lje-qF-RJs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PosterPlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="JrF-dp-Hdm">
+                                                    <rect key="frame" x="15" y="11" width="92" height="80"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="Pvo-KE-wEV"/>
+                                                        <constraint firstAttribute="width" constant="92" id="j9b-eL-mXU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-Jp-aVG">
+                                                    <rect key="frame" x="115" y="11" width="245" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nst-rm-ZmM">
+                                                    <rect key="frame" x="115" y="39.5" width="245" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="nst-rm-ZmM" secondAttribute="bottom" id="7YL-Rp-hwX"/>
+                                                <constraint firstItem="VOb-Jp-aVG" firstAttribute="leading" secondItem="JrF-dp-Hdm" secondAttribute="trailing" constant="8" id="BKf-v8-jiW"/>
+                                                <constraint firstItem="JrF-dp-Hdm" firstAttribute="leading" secondItem="lje-qF-RJs" secondAttribute="leadingMargin" id="CkJ-MJ-rLs"/>
+                                                <constraint firstItem="nst-rm-ZmM" firstAttribute="trailing" secondItem="lje-qF-RJs" secondAttribute="trailingMargin" id="EIv-BV-tAH"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="JrF-dp-Hdm" secondAttribute="bottom" priority="999" id="HHC-1F-dfs"/>
+                                                <constraint firstItem="nst-rm-ZmM" firstAttribute="top" secondItem="VOb-Jp-aVG" secondAttribute="bottom" constant="8" id="YFd-8m-1y9"/>
+                                                <constraint firstItem="nst-rm-ZmM" firstAttribute="leading" secondItem="JrF-dp-Hdm" secondAttribute="trailing" constant="8" id="f0f-EZ-int"/>
+                                                <constraint firstItem="VOb-Jp-aVG" firstAttribute="top" secondItem="lje-qF-RJs" secondAttribute="topMargin" id="iov-Nm-9S2"/>
+                                                <constraint firstItem="JrF-dp-Hdm" firstAttribute="top" secondItem="lje-qF-RJs" secondAttribute="topMargin" id="iwc-B3-Emn"/>
+                                                <constraint firstItem="VOb-Jp-aVG" firstAttribute="trailing" secondItem="lje-qF-RJs" secondAttribute="trailingMargin" id="oxi-s0-I9G"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="nst-rm-ZmM" id="D4U-qD-1XZ"/>
+                                            <outlet property="doctorImageView" destination="JrF-dp-Hdm" id="Fgh-TX-Mla"/>
+                                            <outlet property="nameLabel" destination="VOb-Jp-aVG" id="7LQ-iJ-ZB6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Opd-VJ-k8E" id="Iqs-q9-vCS"/>
+                                    <outlet property="delegate" destination="Opd-VJ-k8E" id="Oqh-7B-ZZA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5vf-R3-gB7" firstAttribute="trailing" secondItem="yko-BB-QXm" secondAttribute="trailing" id="0j6-eb-1jH"/>
+                            <constraint firstItem="5vf-R3-gB7" firstAttribute="top" secondItem="tRz-hM-hAM" secondAttribute="top" id="PiT-XE-4kn"/>
+                            <constraint firstItem="5vf-R3-gB7" firstAttribute="bottom" secondItem="yko-BB-QXm" secondAttribute="bottom" id="Txq-yj-Qdh"/>
+                            <constraint firstItem="5vf-R3-gB7" firstAttribute="leading" secondItem="yko-BB-QXm" secondAttribute="leading" id="lIL-hn-duv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yko-BB-QXm"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5vf-R3-gB7" id="5YA-MK-oVX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffc-c7-2JG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530" y="87"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="PosterPlaceholderImage" width="92" height="80"/>
         <image name="SearchCallToActionImage" width="255" height="194"/>
     </resources>
 </document>

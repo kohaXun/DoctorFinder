@@ -33,7 +33,7 @@ class NetworkManager {
     }
     
     func searchDoctors(for searchString: String) {
-        session.request(UvitaRouter.search(kind: .doctors, query: searchString))
+        session.request(UvitaRouter.search(kind: .doctors, query: searchString, latidude: "52.534709", longitude: "13.3976972", lastKey: nil))
             .validate()
             .responseJSON { response in
                 switch response.result {

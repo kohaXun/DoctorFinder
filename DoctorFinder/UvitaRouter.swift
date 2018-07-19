@@ -12,7 +12,8 @@ import Alamofire
 enum UvitaRouter: URLRequestConvertible {
     
     case oauth(username: String, password: String, refreshToken: String?)
-    case search(kind: UvitaSearchKind, query: String)
+    case search(kind: UvitaSearchKind, query: String, latidude: String, longitude: String, lastKey: String?)
+    case image(path: String)
     
     internal enum UvitaSearchKind: String {
         case doctors
@@ -26,7 +27,7 @@ enum UvitaRouter: URLRequestConvertible {
         switch self {
         case .oauth:
             return .post
-        case .search:
+        case .search, .image:
             return .get
         }
     }
@@ -35,12 +36,14 @@ enum UvitaRouter: URLRequestConvertible {
         switch self {
         case .oauth:
             return "oauth/token"
-        case .search(let kind, _):
+        case .search(let kind, _, _, _, _):
             return "api/users/me/"+kind.rawValue
+        case .image(let path):
+            return "api/users/me/files/"+path
         }
     }
     
-    private var parameters: [String: String] {
+    private var parameters: [String: String]? {
         switch self {
         case .oauth(let username, let password, let refreshToken):
             if let refreshToken = refreshToken {
@@ -48,8 +51,14 @@ enum UvitaRouter: URLRequestConvertible {
             } else {
                 return ["grant_type": "password", "username": username, "password": password]
             }
-        case .search(_,let query):
-            return ["search": query, "lat" : "52.534709", "lng": "13.3976972"]
+        case .search(_,let query, let latitude, let longitude, let lastKey):
+            var parameters = ["search": query, "lat" : latitude, "lng": longitude]
+            if let lastKey = lastKey {
+                parameters["lastKey"] = lastKey
+            }
+            return parameters
+        default:
+            return nil
         }
     }
     

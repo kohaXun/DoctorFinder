@@ -15,10 +15,23 @@
 		D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */; };
 		D5CED08920FE5AF900D75E57 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED08820FE5AF900D75E57 /* NetworkManager.swift */; };
 		D5CED08C20FE5B5000D75E57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED08B20FE5B5000D75E57 /* Alamofire.framework */; };
-		D5CED08D20FE5B5900D75E57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED08B20FE5B5000D75E57 /* Alamofire.framework */; };
 		D5CED08E20FE5B5900D75E57 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED08B20FE5B5000D75E57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5CED09120FFC6EB00D75E57 /* AuthenticationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED09020FFC6EB00D75E57 /* AuthenticationHandler.swift */; };
 		D5CED09320FFDC6800D75E57 /* UvitaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED09220FFDC6800D75E57 /* UvitaRouter.swift */; };
+		D5CED0972100F0FB00D75E57 /* BaseTableComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0962100F0FB00D75E57 /* BaseTableComponentViewController.swift */; };
+		D5CED09A2100F12800D75E57 /* BaseComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0992100F12800D75E57 /* BaseComponentProtocol.swift */; };
+		D5CED09E2100F14E00D75E57 /* BaseCollectionComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED09D2100F14E00D75E57 /* BaseCollectionComponentModel.swift */; };
+		D5CED0A02100F16E00D75E57 /* BaseSectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED09F2100F16E00D75E57 /* BaseSectionDataModel.swift */; };
+		D5CED0A42100F1B400D75E57 /* BaseTableComponentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0A32100F1B400D75E57 /* BaseTableComponentViewCell.swift */; };
+		D5CED0A72100F22A00D75E57 /* DoctorSearchResultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0A62100F22A00D75E57 /* DoctorSearchResultCellModel.swift */; };
+		D5CED0AA2100F2FB00D75E57 /* DoctorSearchResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0A92100F2FB00D75E57 /* DoctorSearchResultViewCell.swift */; };
+		D5CED0AD2100F36E00D75E57 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED0AB2100F36A00D75E57 /* AlamofireImage.framework */; };
+		D5CED0AE2100F36E00D75E57 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED0AB2100F36A00D75E57 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5CED0B02100F5C800D75E57 /* DoctorSearchResultComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0AF2100F5C800D75E57 /* DoctorSearchResultComponentModel.swift */; };
+		D5CED0B32100F61700D75E57 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B22100F61700D75E57 /* Doctor.swift */; };
+		D5CED0B62100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B52100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift */; };
+		D5CED0B92100F7E200D75E57 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */; };
+		D5CED0BB2100F7F600D75E57 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +52,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D5CED08E20FE5B5900D75E57 /* Alamofire.framework in Embed Frameworks */,
+				D5CED0AE2100F36E00D75E57 /* AlamofireImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +74,19 @@
 		D5CED08B20FE5B5000D75E57 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D5CED09020FFC6EB00D75E57 /* AuthenticationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHandler.swift; sourceTree = "<group>"; };
 		D5CED09220FFDC6800D75E57 /* UvitaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvitaRouter.swift; sourceTree = "<group>"; };
+		D5CED0962100F0FB00D75E57 /* BaseTableComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableComponentViewController.swift; sourceTree = "<group>"; };
+		D5CED0992100F12800D75E57 /* BaseComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseComponentProtocol.swift; sourceTree = "<group>"; };
+		D5CED09D2100F14E00D75E57 /* BaseCollectionComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionComponentModel.swift; sourceTree = "<group>"; };
+		D5CED09F2100F16E00D75E57 /* BaseSectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDataModel.swift; sourceTree = "<group>"; };
+		D5CED0A32100F1B400D75E57 /* BaseTableComponentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableComponentViewCell.swift; sourceTree = "<group>"; };
+		D5CED0A62100F22A00D75E57 /* DoctorSearchResultCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultCellModel.swift; sourceTree = "<group>"; };
+		D5CED0A92100F2FB00D75E57 /* DoctorSearchResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultViewCell.swift; sourceTree = "<group>"; };
+		D5CED0AB2100F36A00D75E57 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		D5CED0AF2100F5C800D75E57 /* DoctorSearchResultComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultComponentModel.swift; sourceTree = "<group>"; };
+		D5CED0B22100F61700D75E57 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		D5CED0B52100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultsComponentViewController.swift; sourceTree = "<group>"; };
+		D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5CED0AD2100F36E00D75E57 /* AlamofireImage.framework in Frameworks */,
 				D5CED08C20FE5B5000D75E57 /* Alamofire.framework in Frameworks */,
-				D5CED08D20FE5B5900D75E57 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +131,12 @@
 		D5CED06320FE47B500D75E57 /* DoctorFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D5CED0B72100F7DA00D75E57 /* Extensions */,
+				D5CED0B12100F60100D75E57 /* Model */,
+				D5CED0A12100F1A500D75E57 /* View */,
+				D5CED09B2100F13A00D75E57 /* ViewModel */,
+				D5CED0982100F11800D75E57 /* Protocols */,
+				D5CED0942100F0CE00D75E57 /* Components */,
 				D5CED08720FE5AE400D75E57 /* Network */,
 				D5CED08420FE57ED00D75E57 /* ViewController */,
 				D5CED06420FE47B500D75E57 /* AppDelegate.swift */,
@@ -145,9 +178,112 @@
 		D5CED08A20FE5B5000D75E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5CED0AB2100F36A00D75E57 /* AlamofireImage.framework */,
 				D5CED08B20FE5B5000D75E57 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5CED0942100F0CE00D75E57 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0B42100F72400D75E57 /* DoctorSearch */,
+				D5CED0952100F0D700D75E57 /* Abstract */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		D5CED0952100F0D700D75E57 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0962100F0FB00D75E57 /* BaseTableComponentViewController.swift */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		D5CED0982100F11800D75E57 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0992100F12800D75E57 /* BaseComponentProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D5CED09B2100F13A00D75E57 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0A52100F21600D75E57 /* DoctorSearch */,
+				D5CED09C2100F14200D75E57 /* Abstract */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		D5CED09C2100F14200D75E57 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED09D2100F14E00D75E57 /* BaseCollectionComponentModel.swift */,
+				D5CED09F2100F16E00D75E57 /* BaseSectionDataModel.swift */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		D5CED0A12100F1A500D75E57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0A82100F2E100D75E57 /* DoctorSearch */,
+				D5CED0A22100F1AB00D75E57 /* Abstract */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D5CED0A22100F1AB00D75E57 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0A32100F1B400D75E57 /* BaseTableComponentViewCell.swift */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		D5CED0A52100F21600D75E57 /* DoctorSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0A62100F22A00D75E57 /* DoctorSearchResultCellModel.swift */,
+				D5CED0AF2100F5C800D75E57 /* DoctorSearchResultComponentModel.swift */,
+			);
+			name = DoctorSearch;
+			sourceTree = "<group>";
+		};
+		D5CED0A82100F2E100D75E57 /* DoctorSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0A92100F2FB00D75E57 /* DoctorSearchResultViewCell.swift */,
+			);
+			name = DoctorSearch;
+			sourceTree = "<group>";
+		};
+		D5CED0B12100F60100D75E57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0B22100F61700D75E57 /* Doctor.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D5CED0B42100F72400D75E57 /* DoctorSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0B52100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift */,
+			);
+			name = DoctorSearch;
+			sourceTree = "<group>";
+		};
+		D5CED0B72100F7DA00D75E57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */,
+				D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,11 +388,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5CED0A42100F1B400D75E57 /* BaseTableComponentViewCell.swift in Sources */,
+				D5CED0A02100F16E00D75E57 /* BaseSectionDataModel.swift in Sources */,
+				D5CED09E2100F14E00D75E57 /* BaseCollectionComponentModel.swift in Sources */,
 				D5CED09320FFDC6800D75E57 /* UvitaRouter.swift in Sources */,
+				D5CED0B92100F7E200D75E57 /* UIViewControllerExtension.swift in Sources */,
+				D5CED0AA2100F2FB00D75E57 /* DoctorSearchResultViewCell.swift in Sources */,
 				D5CED09120FFC6EB00D75E57 /* AuthenticationHandler.swift in Sources */,
+				D5CED0B32100F61700D75E57 /* Doctor.swift in Sources */,
 				D5CED08920FE5AF900D75E57 /* NetworkManager.swift in Sources */,
+				D5CED09A2100F12800D75E57 /* BaseComponentProtocol.swift in Sources */,
 				D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */,
+				D5CED0972100F0FB00D75E57 /* BaseTableComponentViewController.swift in Sources */,
 				D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */,
+				D5CED0B62100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift in Sources */,
+				D5CED0BB2100F7F600D75E57 /* UIStoryboardExtension.swift in Sources */,
+				D5CED0A72100F22A00D75E57 /* DoctorSearchResultCellModel.swift in Sources */,
+				D5CED0B02100F5C800D75E57 /* DoctorSearchResultComponentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
