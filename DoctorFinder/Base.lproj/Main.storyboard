@@ -59,7 +59,7 @@
         <!--Doctor Search Results Component View Controller-->
         <scene sceneID="TYf-67-Ttp">
             <objects>
-                <viewController id="Opd-VJ-k8E" customClass="DoctorSearchResultsComponentViewController" customModule="DoctorFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoctorSearchResultsComponentViewController" id="Opd-VJ-k8E" customClass="DoctorSearchResultsComponentViewController" customModule="DoctorFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tRz-hM-hAM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="103" id="kjB-mg-RNF" customClass="DoctorSearchResultViewCell" customModule="DoctorFinder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoctorSearchResultViewCell" rowHeight="103" id="kjB-mg-RNF" customClass="DoctorSearchResultViewCell" customModule="DoctorFinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjB-mg-RNF" id="lje-qF-RJs">

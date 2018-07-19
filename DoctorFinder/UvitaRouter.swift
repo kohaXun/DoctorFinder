@@ -12,7 +12,7 @@ import Alamofire
 enum UvitaRouter: URLRequestConvertible {
     
     case oauth(username: String, password: String, refreshToken: String?)
-    case search(kind: UvitaSearchKind, query: String, latidude: String, longitude: String, lastKey: String?)
+    case search(kind: UvitaSearchKind, query: String, lastKey: String?)
     case image(path: String)
     
     internal enum UvitaSearchKind: String {
@@ -36,7 +36,7 @@ enum UvitaRouter: URLRequestConvertible {
         switch self {
         case .oauth:
             return "oauth/token"
-        case .search(let kind, _, _, _, _):
+        case .search(let kind, _, _):
             return "api/users/me/"+kind.rawValue
         case .image(let path):
             return "api/users/me/files/"+path
@@ -51,8 +51,8 @@ enum UvitaRouter: URLRequestConvertible {
             } else {
                 return ["grant_type": "password", "username": username, "password": password]
             }
-        case .search(_,let query, let latitude, let longitude, let lastKey):
-            var parameters = ["search": query, "lat" : latitude, "lng": longitude]
+        case .search(_,let query, let lastKey):
+            var parameters = ["search": query, "lat" : "52.534709", "lng": "13.3976972"]
             if let lastKey = lastKey {
                 parameters["lastKey"] = lastKey
             }

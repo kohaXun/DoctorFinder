@@ -10,7 +10,7 @@ import Foundation
 
 /// Model class that holds data for a doctor.
 struct Doctor {
-    let id: Int
+    let id: String
     let name: String
     let address: String
     let imagePath: String?
@@ -26,7 +26,7 @@ extension Doctor: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DoctorCodingKeys.self)
-        let id: Int = try container.decode(Int.self, forKey: .id)
+        let id: String = try container.decode(String.self, forKey: .id)
         let name: String = try container.decode(String.self, forKey: .name)
         let address: String = try container.decode(String.self, forKey: .address)
         let imagePath: String? = try? container.decode(String.self, forKey: .imagePath)
@@ -37,4 +37,5 @@ extension Doctor: Decodable {
 
 struct DoctorResult: Decodable {
     let doctors: [Doctor]
+    let lastKey: String?
 }

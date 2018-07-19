@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D54A4DF42101235900A6FBD8 /* DoctorSearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */; };
+		D54A4DF62101307E00A6FBD8 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */; };
 		D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06420FE47B500D75E57 /* AppDelegate.swift */; };
 		D5CED06A20FE47B500D75E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06820FE47B500D75E57 /* Main.storyboard */; };
 		D5CED06C20FE47B600D75E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06B20FE47B600D75E57 /* Assets.xcassets */; };
@@ -30,7 +32,6 @@
 		D5CED0B02100F5C800D75E57 /* DoctorSearchResultComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0AF2100F5C800D75E57 /* DoctorSearchResultComponentModel.swift */; };
 		D5CED0B32100F61700D75E57 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B22100F61700D75E57 /* Doctor.swift */; };
 		D5CED0B62100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B52100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift */; };
-		D5CED0B92100F7E200D75E57 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */; };
 		D5CED0BB2100F7F600D75E57 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchDataController.swift; sourceTree = "<group>"; };
+		D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		D5CED06120FE47B500D75E57 /* DoctorFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED06420FE47B500D75E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5CED06920FE47B500D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		D5CED0AF2100F5C800D75E57 /* DoctorSearchResultComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultComponentModel.swift; sourceTree = "<group>"; };
 		D5CED0B22100F61700D75E57 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		D5CED0B52100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchResultsComponentViewController.swift; sourceTree = "<group>"; };
-		D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D54A4DF22101234600A6FBD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		D5CED05820FE47B500D75E57 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 		D5CED06320FE47B500D75E57 /* DoctorFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D54A4DF22101234600A6FBD8 /* Controller */,
 				D5CED0B72100F7DA00D75E57 /* Extensions */,
 				D5CED0B12100F60100D75E57 /* Model */,
 				D5CED0A12100F1A500D75E57 /* View */,
@@ -280,8 +291,8 @@
 		D5CED0B72100F7DA00D75E57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D5CED0B82100F7E200D75E57 /* UIViewControllerExtension.swift */,
 				D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */,
+				D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -392,7 +403,6 @@
 				D5CED0A02100F16E00D75E57 /* BaseSectionDataModel.swift in Sources */,
 				D5CED09E2100F14E00D75E57 /* BaseCollectionComponentModel.swift in Sources */,
 				D5CED09320FFDC6800D75E57 /* UvitaRouter.swift in Sources */,
-				D5CED0B92100F7E200D75E57 /* UIViewControllerExtension.swift in Sources */,
 				D5CED0AA2100F2FB00D75E57 /* DoctorSearchResultViewCell.swift in Sources */,
 				D5CED09120FFC6EB00D75E57 /* AuthenticationHandler.swift in Sources */,
 				D5CED0B32100F61700D75E57 /* Doctor.swift in Sources */,
@@ -401,7 +411,9 @@
 				D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */,
 				D5CED0972100F0FB00D75E57 /* BaseTableComponentViewController.swift in Sources */,
 				D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */,
+				D54A4DF62101307E00A6FBD8 /* UIAlertControllerExtension.swift in Sources */,
 				D5CED0B62100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift in Sources */,
+				D54A4DF42101235900A6FBD8 /* DoctorSearchDataController.swift in Sources */,
 				D5CED0BB2100F7F600D75E57 /* UIStoryboardExtension.swift in Sources */,
 				D5CED0A72100F22A00D75E57 /* DoctorSearchResultCellModel.swift in Sources */,
 				D5CED0B02100F5C800D75E57 /* DoctorSearchResultComponentModel.swift in Sources */,

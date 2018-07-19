@@ -8,6 +8,33 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
+
+enum NetworkError: Error {
+    case badRequest
+    case internalError
+    case invalidResponse
+    case noConnection
+    case serverError
+    case network(error: Error)
+    
+    init(_ error: Error) {
+        let error = error as NSError
+        
+        switch error.code {
+        case NSURLErrorNotConnectedToInternet, NSURLErrorInternationalRoamingOff, NSURLErrorDataNotAllowed, NSURLErrorNetworkConnectionLost:
+            self = .noConnection
+        case NSURLErrorTimedOut, NSURLErrorCannotFindHost, NSURLErrorDNSLookupFailed, NSURLErrorCannotConnectToHost, NSURLErrorResourceUnavailable, NSURLErrorBackgroundSessionWasDisconnected, NSURLErrorCannotLoadFromNetwork:
+            if NetworkManager.shared.isNetworkReachable {
+                self = .serverError
+            } else {
+                self = .noConnection
+            }
+        default:
+            self = .network(error: error)
+        }
+    }
+}
 
 /// Manager class that is responsible for any network request a view needs for displaying data from an API.
 class NetworkManager {
@@ -30,19 +57,31 @@ class NetworkManager {
         let authenticationHandler = AuthenticationHandler(with: "ioschallenge@uvita.eu", password: "shouldnotbetoohard")
         session.adapter = authenticationHandler
         session.retrier = authenticationHandler
+        
+        let imageDownloader = ImageDownloader.default
+        let imageDownloaderSession = imageDownloader.sessionManager
+        imageDownloaderSession.adapter = authenticationHandler
+        imageDownloaderSession.retrier = authenticationHandler
     }
     
-    func searchDoctors(for searchString: String) {
-        session.request(UvitaRouter.search(kind: .doctors, query: searchString, latidude: "52.534709", longitude: "13.3976972", lastKey: nil))
+    func searchDoctors(for searchString: String, lastKey: String?, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {
+        return session.request(UvitaRouter.search(kind: .doctors, query: searchString, lastKey: lastKey))
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    if let json = response.result.value as? [String: Any] {
-                        print(json)
+                    do {
+                        guard let json = response.data else {
+                            onFailure(.internalError)
+                            return
+                        }
+                        let result = try JSONDecoder().decode(DoctorResult.self, from: json)
+                        onSuccess(result.doctors, result.lastKey)
+                    } catch {
+                        onFailure(.invalidResponse)
                     }
-                case .failure:
-                    print("failed")
+                case .failure(let error):
+                    onFailure(NetworkError(error))
                 }
         }
     }

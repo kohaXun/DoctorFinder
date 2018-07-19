@@ -23,7 +23,7 @@ class DoctorSearchResultViewCell: BaseTableComponentViewCell {
         }
         
         nameLabel.text = model.name
-        addressLabel.text = model.address.replacingOccurrences(of: ",", with: "\n")
+        addressLabel.text = model.address.replacingOccurrences(of: ", ", with: "\n")
         
         if let imagePath = model.imagePath {
             doctorImageView.af_setImage(withURLRequest: UvitaRouter.image(path: imagePath), placeholderImage: UIImage(named: "PosterPlaceholderImage"))
