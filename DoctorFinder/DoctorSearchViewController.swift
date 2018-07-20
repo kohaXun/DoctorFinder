@@ -13,7 +13,7 @@ class DoctorSearchViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var searchResultContainerView: UIView!
+    @IBOutlet private weak var searchResultsContainerView: UIView!
     
     // MARK: - Computed Variables
     
@@ -53,10 +53,10 @@ class DoctorSearchViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        setupSearchResultComponent()
+        setupSearchResultsComponent()
     }
     
-    // MARK: Loading data
+    // MARK: - Loading data
     
     private func loadSearchResults(for query: String) {
         doctorSearchResultsComponent?.model = nil
@@ -67,7 +67,7 @@ class DoctorSearchViewController: UIViewController {
         dataController.loadMore(for: query)
     }
     
-    // MARK: Updating Component
+    // MARK: - Updating Component
     
     private func showSearchResults(with doctors: [Doctor]) {
         if let data = doctorSearchResultsComponent?.model?.data, !data.isEmpty {
@@ -82,14 +82,16 @@ class DoctorSearchViewController: UIViewController {
         doctorSearchResultsComponent?.view.isHidden = true
     }
     
-    private func setupSearchResultComponent() {
+    private func setupSearchResultsComponent() {
         guard let component = doctorSearchResultsComponent else {
             return
         }
-        loadChildViewController(component, in: searchResultContainerView)
+        loadChildViewController(component, in: searchResultsContainerView)
         component.view.isHidden = true
     }
 }
+
+// MARK: - DoctorSearchDataControllerDelegate
 
 extension DoctorSearchViewController: DoctorSearchDataControllerDelegate {
     func dataController(_ controller: DoctorSearchDataController, didLoadData doctors: [Doctor]) {
@@ -110,6 +112,8 @@ extension DoctorSearchViewController: DoctorSearchDataControllerDelegate {
     }
 }
 
+// MARK: - DoctorSearchResultsComponentDelegate
+
 extension DoctorSearchViewController: DoctorSearchResultsComponentDelegate {
     func componentDidDisplayLastCell(_ component: DoctorSearchResultsComponentViewController) {
         guard let searchString = searchController?.searchBar.text else {
@@ -118,6 +122,8 @@ extension DoctorSearchViewController: DoctorSearchResultsComponentDelegate {
         loadMoreSearchResults(for: searchString)
     }
 }
+
+// MARK: - UISearchBarDelegate
 
 extension DoctorSearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

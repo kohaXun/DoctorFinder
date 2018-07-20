@@ -60,7 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="DoctorFinder" id="CuR-4T-UkK"/>
                     <connections>
-                        <outlet property="searchResultContainerView" destination="FrN-jZ-zBq" id="cGg-rB-qBW"/>
+                        <outlet property="searchResultsContainerView" destination="FrN-jZ-zBq" id="cGg-rB-qBW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeI-0Z-21r" userLabel="First Responder" sceneMemberID="firstResponder"/>
