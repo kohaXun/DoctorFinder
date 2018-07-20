@@ -42,19 +42,30 @@
                                     <constraint firstAttribute="width" constant="255" id="oaG-vS-et8"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrN-jZ-zBq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FrN-jZ-zBq" firstAttribute="trailing" secondItem="AOf-qz-IjB" secondAttribute="trailing" id="On9-Q0-ZIU"/>
+                            <constraint firstItem="FrN-jZ-zBq" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" id="cjL-O1-6k0"/>
+                            <constraint firstItem="FrN-jZ-zBq" firstAttribute="top" secondItem="gxE-Fb-mmI" secondAttribute="top" id="fC2-nq-n4h"/>
+                            <constraint firstItem="FrN-jZ-zBq" firstAttribute="bottom" secondItem="AOf-qz-IjB" secondAttribute="bottom" id="mhv-ZC-fXT"/>
                             <constraint firstItem="XrP-4d-Ehy" firstAttribute="centerX" secondItem="gxE-Fb-mmI" secondAttribute="centerX" id="oWn-Bb-dEy"/>
                             <constraint firstItem="XrP-4d-Ehy" firstAttribute="top" secondItem="AOf-qz-IjB" secondAttribute="top" constant="15" id="y5O-Ap-kLm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AOf-qz-IjB"/>
                     </view>
                     <navigationItem key="navigationItem" title="DoctorFinder" id="CuR-4T-UkK"/>
+                    <connections>
+                        <outlet property="searchResultContainerView" destination="FrN-jZ-zBq" id="cGg-rB-qBW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeI-0Z-21r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="647" y="87"/>
+            <point key="canvasLocation" x="645.60000000000002" y="86.806596701649184"/>
         </scene>
         <!--Doctor Search Results Component View Controller-->
         <scene sceneID="TYf-67-Ttp">

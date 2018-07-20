@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D54A4DF42101235900A6FBD8 /* DoctorSearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */; };
 		D54A4DF62101307E00A6FBD8 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */; };
+		D54A4DF8210232B500A6FBD8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */; };
 		D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06420FE47B500D75E57 /* AppDelegate.swift */; };
 		D5CED06A20FE47B500D75E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06820FE47B500D75E57 /* Main.storyboard */; };
 		D5CED06C20FE47B600D75E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06B20FE47B600D75E57 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchDataController.swift; sourceTree = "<group>"; };
 		D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		D5CED06120FE47B500D75E57 /* DoctorFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED06420FE47B500D75E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5CED06920FE47B500D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		D5CED0B72100F7DA00D75E57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */,
 				D5CED0BA2100F7F600D75E57 /* UIStoryboardExtension.swift */,
 				D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */,
 			);
@@ -415,6 +418,7 @@
 				D5CED0B62100F73A00D75E57 /* DoctorSearchResultsComponentViewController.swift in Sources */,
 				D54A4DF42101235900A6FBD8 /* DoctorSearchDataController.swift in Sources */,
 				D5CED0BB2100F7F600D75E57 /* UIStoryboardExtension.swift in Sources */,
+				D54A4DF8210232B500A6FBD8 /* UIViewControllerExtension.swift in Sources */,
 				D5CED0A72100F22A00D75E57 /* DoctorSearchResultCellModel.swift in Sources */,
 				D5CED0B02100F5C800D75E57 /* DoctorSearchResultComponentModel.swift in Sources */,
 			);

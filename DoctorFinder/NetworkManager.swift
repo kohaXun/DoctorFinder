@@ -64,7 +64,7 @@ class NetworkManager {
         imageDownloaderSession.retrier = authenticationHandler
     }
     
-    func searchDoctors(for searchString: String, lastKey: String?, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {
+    func searchDoctors(for searchString: String, lastKey: String? = nil, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {
         return session.request(UvitaRouter.search(kind: .doctors, query: searchString, lastKey: lastKey))
             .validate()
             .responseJSON { response in

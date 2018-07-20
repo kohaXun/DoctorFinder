@@ -28,8 +28,9 @@ class DoctorSearchDataController {
     weak var delegate: DoctorSearchDataControllerDelegate?
     
     /// Returns true if there are more pages to load from the API
-    var canLoadMore = false
-    
+    private var canLoadMore: Bool {
+        return lastKey != nil
+    }
     private var searchTask: DataRequest?
     private var lastKey: String?
     
@@ -40,13 +41,12 @@ class DoctorSearchDataController {
     /// - Parameter searchString: The string used for querying a movie database
     func loadSearchResults(for searchString: String) {
         do {
-            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, lastKey: lastKey, onSuccess: { (doctors, lastKey) in
+            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, onSuccess: { (doctors, lastKey) in
                 guard !doctors.isEmpty else {
                     self.delegate?.dataController(self, didFail: .notFound)
                     return
                 }
                 self.delegate?.dataController(self, didLoadData: doctors)
-                self.canLoadMore = true
                 self.lastKey = lastKey
             }) { error in
                 self.delegate?.dataController(self, didFail: .network(error: error))
@@ -70,17 +70,13 @@ class DoctorSearchDataController {
         
         do {
             searchTask = try NetworkManager.shared.searchDoctors(for: searchString, lastKey: lastKey, onSuccess: { (doctors, lastKey) in
-                guard !doctors.isEmpty else {
-                    self.canLoadMore = false
-                    return
-                }
                 self.delegate?.dataController(self, didLoadData: doctors)
                 self.lastKey = lastKey
             }) { error in
-                self.canLoadMore = false
+                self.lastKey = nil
             }
         } catch {
-            self.canLoadMore = false
+            self.lastKey = nil
         }
     }
 }

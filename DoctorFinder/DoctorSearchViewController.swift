@@ -11,12 +11,14 @@ import UIKit
 /// View controller that displays a search bar and shows doctors for a given search query.
 class DoctorSearchViewController: UIViewController {
     
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var searchResultContainerView: UIView!
+    
     // MARK: - Computed Variables
     
     private lazy var searchController: UISearchController? = {
-        let controller = UISearchController(searchResultsController: doctorSearchResultsComponent)
-        controller.searchResultsUpdater = self
-        return controller
+        return UISearchController(searchResultsController: nil)
     }()
     
     // Component that is able to show doctors in a table view
@@ -44,13 +46,14 @@ class DoctorSearchViewController: UIViewController {
         }
         
         searchController.searchBar.placeholder = "Search doctors"
-        searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
 
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        setupSearchResultComponent()
     }
     
     // MARK: Loading data
@@ -72,6 +75,19 @@ class DoctorSearchViewController: UIViewController {
         } else {
             doctorSearchResultsComponent?.model = DoctorSearchResultComponentModel(with: doctors)
         }
+        doctorSearchResultsComponent?.view.isHidden = false
+    }
+    
+    private func hideSearchResults() {
+        doctorSearchResultsComponent?.view.isHidden = true
+    }
+    
+    private func setupSearchResultComponent() {
+        guard let component = doctorSearchResultsComponent else {
+            return
+        }
+        loadChildViewController(component, in: searchResultContainerView)
+        component.view.isHidden = true
     }
 }
 
@@ -110,11 +126,8 @@ extension DoctorSearchViewController: UISearchBarDelegate {
         }
         loadSearchResults(for: searchString)
     }
-}
-
-extension DoctorSearchViewController: UISearchResultsUpdating {
     
-    func updateSearchResults(for searchController: UISearchController) {
-
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        hideSearchResults()
     }
 }

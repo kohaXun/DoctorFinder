@@ -16,6 +16,12 @@ class DoctorSearchResultViewCell: BaseTableComponentViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     
+    private let placeholderImage = UIImage(named: "PosterPlaceholderImage")
+    
+    override func prepareForReuse() {
+        doctorImageView.image = placeholderImage
+    }
+    
     // MARK: - BaseTableComponentProtocol
     override func updateUI() {
         guard let model = data as? DoctorSearchResultCellModel else {
@@ -26,7 +32,7 @@ class DoctorSearchResultViewCell: BaseTableComponentViewCell {
         addressLabel.text = model.address.replacingOccurrences(of: ", ", with: "\n")
         
         if let imagePath = model.imagePath {
-            doctorImageView.af_setImage(withURLRequest: UvitaRouter.image(path: imagePath), placeholderImage: UIImage(named: "PosterPlaceholderImage"))
+            doctorImageView.af_setImage(withURLRequest: UvitaRouter.image(path: imagePath), placeholderImage: placeholderImage)
         }
     }
 }

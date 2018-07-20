@@ -52,7 +52,7 @@ enum UvitaRouter: URLRequestConvertible {
                 return ["grant_type": "password", "username": username, "password": password]
             }
         case .search(_,let query, let lastKey):
-            var parameters = ["search": query, "lat" : "52.534709", "lng": "13.3976972"]
+            var parameters = ["search": query, "lat" : "52.534709", "lng": "13.3976972", "sort": "distance"]
             if let lastKey = lastKey {
                 parameters["lastKey"] = lastKey
             }
