@@ -11,6 +11,7 @@
 		D54A4DF62101307E00A6FBD8 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */; };
 		D54A4DF8210232B500A6FBD8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */; };
 		D58A84CE2104956500C6EC5B /* DoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A84CD2104956500C6EC5B /* DoctorTests.swift */; };
+		D58A84D02104985200C6EC5B /* UvitaRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A84CF2104985200C6EC5B /* UvitaRouterTests.swift */; };
 		D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06420FE47B500D75E57 /* AppDelegate.swift */; };
 		D5CED06A20FE47B500D75E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06820FE47B500D75E57 /* Main.storyboard */; };
 		D5CED06C20FE47B600D75E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06B20FE47B600D75E57 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		D54A4DF921023BE000A6FBD8 /* Berlin.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Berlin.gpx; sourceTree = "<group>"; };
 		D58A84CC2103943F00C6EC5B /* Ulm.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ulm.gpx; sourceTree = "<group>"; };
 		D58A84CD2104956500C6EC5B /* DoctorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTests.swift; sourceTree = "<group>"; };
+		D58A84CF2104985200C6EC5B /* UvitaRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvitaRouterTests.swift; sourceTree = "<group>"; };
 		D5CED06120FE47B500D75E57 /* DoctorFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED06420FE47B500D75E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5CED06920FE47B500D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				D58A84CD2104956500C6EC5B /* DoctorTests.swift */,
+				D58A84CF2104985200C6EC5B /* UvitaRouterTests.swift */,
 				D5CED07B20FE47B600D75E57 /* Info.plist */,
 			);
 			path = DoctorFinderTests;
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D58A84D02104985200C6EC5B /* UvitaRouterTests.swift in Sources */,
 				D58A84CE2104956500C6EC5B /* DoctorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
