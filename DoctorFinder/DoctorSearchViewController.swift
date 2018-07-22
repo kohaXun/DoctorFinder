@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 /// View controller that displays a search bar and shows doctors for a given search query.
 class DoctorSearchViewController: UIViewController {
@@ -18,7 +19,12 @@ class DoctorSearchViewController: UIViewController {
     // MARK: - Computed Variables
     
     private lazy var searchController: UISearchController? = {
-        return UISearchController(searchResultsController: nil)
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchBar.placeholder = "Search doctors"
+        controller.hidesNavigationBarDuringPresentation = false
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.delegate = self
+        return controller
     }()
     
     // Component that is able to show doctors in a table view
@@ -34,21 +40,22 @@ class DoctorSearchViewController: UIViewController {
         controller.delegate = self
         return controller
     }()
+
+    // The location manager that is responsible for requesting the users current location
+    private lazy var locationManager: CLLocationManager = {
+       let manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 100.0
+        return manager
+    }()
+    
+    private var currentLocation: CLLocation?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setup the search controller
-        guard let searchController = searchController else {
-            return
-        }
-        
-        searchController.searchBar.placeholder = "Search doctors"
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.delegate = self
 
         navigationItem.searchController = searchController
         definesPresentationContext = true
@@ -56,15 +63,31 @@ class DoctorSearchViewController: UIViewController {
         setupSearchResultsComponent()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
     // MARK: - Loading data
     
     private func loadSearchResults(for query: String) {
         doctorSearchResultsComponent?.model = nil
-        dataController.loadSearchResults(for: query)
+        guard let location = currentLocation else {
+            showLocationNotAvailableAlert()
+            return
+        }
+        dataController.loadSearchResults(for: query, near: location)
     }
     
     private func loadMoreSearchResults(for query: String) {
-        dataController.loadMore(for: query)
+        guard let location = currentLocation else {
+            showLocationNotAvailableAlert()
+            return
+        }
+        dataController.loadMore(for: query, near: location)
     }
     
     // MARK: - Updating Component
@@ -89,6 +112,13 @@ class DoctorSearchViewController: UIViewController {
         loadChildViewController(component, in: searchResultsContainerView)
         component.view.isHidden = true
     }
+    
+    // MARK: - Helper Methods
+    
+    private func showLocationNotAvailableAlert() {
+        let controller = UIAlertController.locationNotAvailableAlert()
+        present(controller, animated: true, completion: nil)
+    }
 }
 
 // MARK: - DoctorSearchDataControllerDelegate
@@ -103,7 +133,9 @@ extension DoctorSearchViewController: DoctorSearchDataControllerDelegate {
         case .notFound:
             let title = "Doctor not found"
             let message = "Sorry, there is no doctor with that name."
-            let controller = UIAlertController.singleButtonAlert(with: title, message: message, buttonTitle: "Ok")
+            let controller = UIAlertController.singleButtonAlert(with: title, message: message, buttonTitle: "Ok", buttonHandler: { _ in
+                self.searchController?.searchBar.becomeFirstResponder()
+            })
             present(controller, animated: true, completion: nil)
         case .network(let error):
             let controller = UIAlertController.alert(for: error)
@@ -126,6 +158,26 @@ extension DoctorSearchViewController: DoctorSearchResultsComponentDelegate {
 // MARK: - UISearchBarDelegate
 
 extension DoctorSearchViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) && CLLocationManager.locationServicesEnabled() {
+            return true
+        } else {
+            let controller = UIAlertController.locationServicesDisabledAlert()
+            present(controller, animated: true, completion: nil)
+            return false
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        locationManager.stopUpdatingLocation()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchString = searchBar.text else {
             return
@@ -135,5 +187,22 @@ extension DoctorSearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         hideSearchResults()
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension DoctorSearchViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if [CLAuthorizationStatus.denied, CLAuthorizationStatus.restricted].contains(status) {
+            let controller = UIAlertController.locationServicesDisabledAlert()
+            present(controller, animated: true, completion: nil)
+        } else {
+            searchController?.searchBar.becomeFirstResponder()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.first
     }
 }

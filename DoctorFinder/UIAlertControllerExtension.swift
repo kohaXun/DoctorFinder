@@ -10,6 +10,35 @@ import UIKit
 
 extension UIAlertController {
     
+    // MARK: - Location
+    
+    /// Returns an UIAlertController that should be displayed when the current location could not be determined by the device.
+    ///
+    /// - Returns: The created alert controller
+    static func locationNotAvailableAlert() -> UIAlertController {
+        let title = "Location not available"
+        let message = "In order to search for a doctor near you we need your current location. Please make sure your device has a GPS signal and try again."
+        return singleButtonAlert(with: title, message: message, buttonTitle: "Ok")
+    }
+    
+    /// Returns an UIAlertController that should be displayed when the user turned off location services in the settings app.
+    ///
+    /// - Returns: The created alert controller
+    static func locationServicesDisabledAlert() -> UIAlertController {
+        let title = "Location services are turned off"
+        let message = "In order to search for a doctor near you we need your current location. Please enable location services in system settings."
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "Open System Settings", style: .default, handler: { _ in
+            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        return controller
+    }
+    
+    // MARK: - Abstract
+    
     /// Returns an UIAlertController with a single button.
     ///
     /// - Parameters:

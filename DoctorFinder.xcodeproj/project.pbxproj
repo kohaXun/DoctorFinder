@@ -10,11 +10,11 @@
 		D54A4DF42101235900A6FBD8 /* DoctorSearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */; };
 		D54A4DF62101307E00A6FBD8 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */; };
 		D54A4DF8210232B500A6FBD8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */; };
+		D58A84CE2104956500C6EC5B /* DoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A84CD2104956500C6EC5B /* DoctorTests.swift */; };
 		D5CED06520FE47B500D75E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED06420FE47B500D75E57 /* AppDelegate.swift */; };
 		D5CED06A20FE47B500D75E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06820FE47B500D75E57 /* Main.storyboard */; };
 		D5CED06C20FE47B600D75E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06B20FE47B600D75E57 /* Assets.xcassets */; };
 		D5CED06F20FE47B600D75E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CED06D20FE47B600D75E57 /* LaunchScreen.storyboard */; };
-		D5CED07A20FE47B600D75E57 /* DoctorFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED07920FE47B600D75E57 /* DoctorFinderTests.swift */; };
 		D5CED08620FE57FF00D75E57 /* DoctorSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */; };
 		D5CED08920FE5AF900D75E57 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CED08820FE5AF900D75E57 /* NetworkManager.swift */; };
 		D5CED08C20FE5B5000D75E57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CED08B20FE5B5000D75E57 /* Alamofire.framework */; };
@@ -65,6 +65,9 @@
 		D54A4DF32101235900A6FBD8 /* DoctorSearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchDataController.swift; sourceTree = "<group>"; };
 		D54A4DF52101307E00A6FBD8 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		D54A4DF7210232B500A6FBD8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D54A4DF921023BE000A6FBD8 /* Berlin.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Berlin.gpx; sourceTree = "<group>"; };
+		D58A84CC2103943F00C6EC5B /* Ulm.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ulm.gpx; sourceTree = "<group>"; };
+		D58A84CD2104956500C6EC5B /* DoctorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTests.swift; sourceTree = "<group>"; };
 		D5CED06120FE47B500D75E57 /* DoctorFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CED06420FE47B500D75E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5CED06920FE47B500D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		D5CED06E20FE47B600D75E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5CED07020FE47B600D75E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5CED07520FE47B600D75E57 /* DoctorFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoctorFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5CED07920FE47B600D75E57 /* DoctorFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorFinderTests.swift; sourceTree = "<group>"; };
 		D5CED07B20FE47B600D75E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5CED08520FE57FF00D75E57 /* DoctorSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchViewController.swift; sourceTree = "<group>"; };
 		D5CED08820FE5AF900D75E57 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 				D5CED06820FE47B500D75E57 /* Main.storyboard */,
 				D5CED06D20FE47B600D75E57 /* LaunchScreen.storyboard */,
 				D5CED07020FE47B600D75E57 /* Info.plist */,
+				D58A84CC2103943F00C6EC5B /* Ulm.gpx */,
+				D54A4DF921023BE000A6FBD8 /* Berlin.gpx */,
 			);
 			path = DoctorFinder;
 			sourceTree = "<group>";
@@ -164,7 +168,7 @@
 		D5CED07820FE47B600D75E57 /* DoctorFinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				D5CED07920FE47B600D75E57 /* DoctorFinderTests.swift */,
+				D58A84CD2104956500C6EC5B /* DoctorTests.swift */,
 				D5CED07B20FE47B600D75E57 /* Info.plist */,
 			);
 			path = DoctorFinderTests;
@@ -428,7 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5CED07A20FE47B600D75E57 /* DoctorFinderTests.swift in Sources */,
+				D58A84CE2104956500C6EC5B /* DoctorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

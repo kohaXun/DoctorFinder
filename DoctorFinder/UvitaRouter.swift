@@ -7,12 +7,13 @@
 //
 
 import Alamofire
+import CoreLocation
 
 /// Router class that creates url requests for the Uvita API.
 enum UvitaRouter: URLRequestConvertible {
     
     case oauth(username: String, password: String, refreshToken: String?)
-    case search(kind: UvitaSearchKind, query: String, lastKey: String?)
+    case search(kind: UvitaSearchKind, query: String, location: CLLocation, lastKey: String?)
     case image(path: String)
     
     internal enum UvitaSearchKind: String {
@@ -36,7 +37,7 @@ enum UvitaRouter: URLRequestConvertible {
         switch self {
         case .oauth:
             return "oauth/token"
-        case .search(let kind, _, _):
+        case .search(let kind, _, _, _):
             return "api/users/me/"+kind.rawValue
         case .image(let path):
             return "api/users/me/files/"+path
@@ -51,8 +52,11 @@ enum UvitaRouter: URLRequestConvertible {
             } else {
                 return ["grant_type": "password", "username": username, "password": password]
             }
-        case .search(_,let query, let lastKey):
-            var parameters = ["search": query, "lat" : "52.534709", "lng": "13.3976972", "sort": "distance"]
+        case .search(_,let query, let location, let lastKey):
+            var parameters = ["search": query]
+            parameters["sort"] = "distance"
+            parameters["lat"] = String(location.coordinate.latitude)
+            parameters["lng"] = String(location.coordinate.longitude)
             if let lastKey = lastKey {
                 parameters["lastKey"] = lastKey
             }

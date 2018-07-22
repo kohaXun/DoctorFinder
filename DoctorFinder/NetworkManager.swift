@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import AlamofireImage
+import CoreLocation
 
 enum NetworkError: Error {
     case badRequest
@@ -64,8 +65,8 @@ class NetworkManager {
         imageDownloaderSession.retrier = authenticationHandler
     }
     
-    func searchDoctors(for searchString: String, lastKey: String? = nil, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {
-        return session.request(UvitaRouter.search(kind: .doctors, query: searchString, lastKey: lastKey))
+    func searchDoctors(for searchString: String, near location: CLLocation, lastKey: String? = nil, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {
+        return session.request(UvitaRouter.search(kind: .doctors, query: searchString, location: location, lastKey: lastKey))
             .validate()
             .responseJSON { response in
                 switch response.result {

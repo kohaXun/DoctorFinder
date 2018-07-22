@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import UIKit
+import CoreLocation
 
 enum DoctorSearchDataError: Error {
     case notFound
@@ -36,12 +37,13 @@ class DoctorSearchDataController {
     
     // MARK: - Networking
     
-    /// Loads doctors asynchronously for a given search string.
+    /// Loads doctors asynchronously for a given search string and location if there is any.
     ///
-    /// - Parameter searchString: The string used for querying a movie database
-    func loadSearchResults(for searchString: String) {
+    /// - Parameter searchString: The string used for querying the API
+    /// - Parameter location: The location used for querying the API
+    func loadSearchResults(for searchString: String, near location: CLLocation) {
         do {
-            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, onSuccess: { (doctors, lastKey) in
+            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, near: location , onSuccess: { (doctors, lastKey) in
                 guard !doctors.isEmpty else {
                     self.delegate?.dataController(self, didFail: .notFound)
                     return
@@ -59,7 +61,7 @@ class DoctorSearchDataController {
     /// Loads the next page if there is any for a search query.
     ///
     /// - Parameter searchString: The string used for querying the API
-    func loadMore(for searchString: String) {
+    func loadMore(for searchString: String, near location: CLLocation) {
         if let searchTask = searchTask, !searchTask.progress.isFinished {
             return
         }
@@ -69,7 +71,7 @@ class DoctorSearchDataController {
         }
         
         do {
-            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, lastKey: lastKey, onSuccess: { (doctors, lastKey) in
+            searchTask = try NetworkManager.shared.searchDoctors(for: searchString, near: location, lastKey: lastKey, onSuccess: { (doctors, lastKey) in
                 self.delegate?.dataController(self, didLoadData: doctors)
                 self.lastKey = lastKey
             }) { error in

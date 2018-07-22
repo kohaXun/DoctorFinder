@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nst-rm-ZmM">
-                                                    <rect key="frame" x="115" y="39.5" width="245" height="18"/>
+                                                    <rect key="frame" x="115" y="36.5" width="245" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -112,7 +112,7 @@
                                                 <constraint firstItem="JrF-dp-Hdm" firstAttribute="leading" secondItem="lje-qF-RJs" secondAttribute="leadingMargin" id="CkJ-MJ-rLs"/>
                                                 <constraint firstItem="nst-rm-ZmM" firstAttribute="trailing" secondItem="lje-qF-RJs" secondAttribute="trailingMargin" id="EIv-BV-tAH"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="JrF-dp-Hdm" secondAttribute="bottom" priority="999" id="HHC-1F-dfs"/>
-                                                <constraint firstItem="nst-rm-ZmM" firstAttribute="top" secondItem="VOb-Jp-aVG" secondAttribute="bottom" constant="8" id="YFd-8m-1y9"/>
+                                                <constraint firstItem="nst-rm-ZmM" firstAttribute="top" secondItem="VOb-Jp-aVG" secondAttribute="bottom" constant="5" id="YFd-8m-1y9"/>
                                                 <constraint firstItem="nst-rm-ZmM" firstAttribute="leading" secondItem="JrF-dp-Hdm" secondAttribute="trailing" constant="8" id="f0f-EZ-int"/>
                                                 <constraint firstItem="VOb-Jp-aVG" firstAttribute="top" secondItem="lje-qF-RJs" secondAttribute="topMargin" id="iov-Nm-9S2"/>
                                                 <constraint firstItem="JrF-dp-Hdm" firstAttribute="top" secondItem="lje-qF-RJs" secondAttribute="topMargin" id="iwc-B3-Emn"/>
