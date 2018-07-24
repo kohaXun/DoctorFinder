@@ -35,21 +35,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your doctor nearby" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXx-RK-ZUk">
+                                <rect key="frame" x="16" y="255" width="343" height="19.5"/>
+                                <accessibility key="accessibilityConfiguration" hint="A text indicating that the user can search for a doctors name when using the searchbar." label="Call to Action caption label">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchCallToActionImage" translatesAutoresizingMaskIntoConstraints="NO" id="XrP-4d-Ehy">
-                                <rect key="frame" x="60" y="79" width="255" height="194"/>
+                                <rect key="frame" x="60" y="79" width="255" height="155"/>
+                                <accessibility key="accessibilityConfiguration" hint="An image indicating that the user can search for a doctors name when using the searchbar." label="Call to action image">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="194" id="fze-i8-xCi"/>
                                     <constraint firstAttribute="width" constant="255" id="oaG-vS-et8"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrN-jZ-zBq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
                         <constraints>
+                            <constraint firstItem="AOf-qz-IjB" firstAttribute="trailing" secondItem="eXx-RK-ZUk" secondAttribute="trailing" constant="16" id="5lc-Jd-gyC"/>
+                            <constraint firstItem="eXx-RK-ZUk" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" constant="16" id="I5y-wH-F3N"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="trailing" secondItem="AOf-qz-IjB" secondAttribute="trailing" id="On9-Q0-ZIU"/>
+                            <constraint firstItem="eXx-RK-ZUk" firstAttribute="top" secondItem="XrP-4d-Ehy" secondAttribute="bottom" constant="21" id="QLf-DH-gdK"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" id="cjL-O1-6k0"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="top" secondItem="gxE-Fb-mmI" secondAttribute="top" id="fC2-nq-n4h"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="bottom" secondItem="AOf-qz-IjB" secondAttribute="bottom" id="mhv-ZC-fXT"/>
@@ -89,18 +109,23 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PosterPlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="JrF-dp-Hdm">
                                                     <rect key="frame" x="15" y="11" width="92" height="80"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="An image that shows either the doctor, the doctors office or any other information like opening hours." label="Doctor image">
+                                                        <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Pvo-KE-wEV"/>
                                                         <constraint firstAttribute="width" constant="92" id="j9b-eL-mXU"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-Jp-aVG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-Jp-aVG">
                                                     <rect key="frame" x="115" y="11" width="245" height="20.5"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="The full name of the doctor." label="Doctor name"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nst-rm-ZmM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nst-rm-ZmM">
                                                     <rect key="frame" x="115" y="36.5" width="245" height="18"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="The address of the doctors office." label="Doctor address"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -134,6 +159,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="5vf-R3-gB7" firstAttribute="trailing" secondItem="yko-BB-QXm" secondAttribute="trailing" id="0j6-eb-1jH"/>
                             <constraint firstItem="5vf-R3-gB7" firstAttribute="top" secondItem="tRz-hM-hAM" secondAttribute="top" id="PiT-XE-4kn"/>
@@ -153,6 +181,6 @@
     </scenes>
     <resources>
         <image name="PosterPlaceholderImage" width="92" height="80"/>
-        <image name="SearchCallToActionImage" width="255" height="194"/>
+        <image name="SearchCallToActionImage" width="255" height="155"/>
     </resources>
 </document>

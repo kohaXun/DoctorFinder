@@ -20,10 +20,10 @@ class DoctorSearchViewController: UIViewController {
     
     private lazy var searchController: UISearchController? = {
         let controller = UISearchController(searchResultsController: nil)
-        controller.searchBar.placeholder = "Search doctors"
+        controller.searchBar.placeholder = "Search a doctor"
+        controller.searchBar.delegate = self
         controller.hidesNavigationBarDuringPresentation = false
         controller.obscuresBackgroundDuringPresentation = false
-        controller.searchBar.delegate = self
         return controller
     }()
     
