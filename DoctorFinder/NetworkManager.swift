@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireImage
 import CoreLocation
+import AlamofireNetworkActivityIndicator
 
 enum NetworkError: Error {
     case badRequest
@@ -63,6 +64,8 @@ class NetworkManager {
         let imageDownloaderSession = imageDownloader.sessionManager
         imageDownloaderSession.adapter = authenticationHandler
         imageDownloaderSession.retrier = authenticationHandler
+        
+        NetworkActivityIndicatorManager.shared.isEnabled = true
     }
     
     func searchDoctors(for searchString: String, near location: CLLocation, lastKey: String? = nil, onSuccess: @escaping ([Doctor], String?) -> Void, onFailure: @escaping (NetworkError) -> Void) throws -> DataRequest {

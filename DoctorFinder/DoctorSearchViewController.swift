@@ -15,6 +15,7 @@ class DoctorSearchViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var searchResultsContainerView: UIView!
+    @IBOutlet private weak var loadingView: LoadingView!
     
     // MARK: - Computed Variables
     
@@ -79,6 +80,7 @@ class DoctorSearchViewController: UIViewController {
             showLocationNotAvailableAlert()
             return
         }
+        loadingView.start()
         dataController.loadSearchResults(for: query, near: location)
     }
     
@@ -87,6 +89,7 @@ class DoctorSearchViewController: UIViewController {
             showLocationNotAvailableAlert()
             return
         }
+        loadingView.start()
         dataController.loadMore(for: query, near: location)
     }
     
@@ -125,10 +128,12 @@ class DoctorSearchViewController: UIViewController {
 
 extension DoctorSearchViewController: DoctorSearchDataControllerDelegate {
     func dataController(_ controller: DoctorSearchDataController, didLoadData doctors: [Doctor]) {
+        loadingView.stop()
         showSearchResults(with: doctors)
     }
     
     func dataController(_ controller: DoctorSearchDataController, didFail error: DoctorSearchDataError) {
+        loadingView.stop()
         switch error {
         case .notFound:
             let title = "Doctor not found"
@@ -141,6 +146,10 @@ extension DoctorSearchViewController: DoctorSearchDataControllerDelegate {
             let controller = UIAlertController.alert(for: error)
             present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func dataControllerDidCancel(_ controller: DoctorSearchDataController) {
+        loadingView.stop()
     }
 }
 
@@ -187,6 +196,7 @@ extension DoctorSearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         hideSearchResults()
+        dataController.cancel()
     }
 }
 
@@ -197,8 +207,6 @@ extension DoctorSearchViewController: CLLocationManagerDelegate {
         if [CLAuthorizationStatus.denied, CLAuthorizationStatus.restricted].contains(status) {
             let controller = UIAlertController.locationServicesDisabledAlert()
             present(controller, animated: true, completion: nil)
-        } else {
-            searchController?.searchBar.becomeFirstResponder()
         }
     }
     

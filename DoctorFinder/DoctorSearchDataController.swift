@@ -19,6 +19,7 @@ enum DoctorSearchDataError: Error {
 protocol DoctorSearchDataControllerDelegate: class {
     func dataController(_ controller: DoctorSearchDataController, didLoadData doctors: [Doctor])
     func dataController(_ controller: DoctorSearchDataController, didFail error: DoctorSearchDataError)
+    func dataControllerDidCancel(_ controller: DoctorSearchDataController)
 }
 
 
@@ -34,6 +35,7 @@ class DoctorSearchDataController {
     }
     private var searchTask: DataRequest?
     private var lastKey: String?
+    private var isCanceled = false
     
     // MARK: - Networking
     
@@ -42,8 +44,12 @@ class DoctorSearchDataController {
     /// - Parameter searchString: The string used for querying the API
     /// - Parameter location: The location used for querying the API
     func loadSearchResults(for searchString: String, near location: CLLocation) {
+        isCanceled = false
         do {
             searchTask = try NetworkManager.shared.searchDoctors(for: searchString, near: location , onSuccess: { (doctors, lastKey) in
+                guard !self.isCanceled else {
+                    return
+                }
                 guard !doctors.isEmpty else {
                     self.delegate?.dataController(self, didFail: .notFound)
                     return
@@ -51,9 +57,15 @@ class DoctorSearchDataController {
                 self.delegate?.dataController(self, didLoadData: doctors)
                 self.lastKey = lastKey
             }) { error in
+                guard !self.isCanceled else {
+                    return
+                }
                 self.delegate?.dataController(self, didFail: .network(error: error))
             }
         } catch (let error) {
+            guard !isCanceled else {
+                return
+            }
             self.delegate?.dataController(self, didFail: .network(error: error))
         }
     }
@@ -66,20 +78,42 @@ class DoctorSearchDataController {
             return
         }
         
+        isCanceled = false
+        
         guard canLoadMore, !searchString.isEmpty else {
             return
         }
         
         do {
             searchTask = try NetworkManager.shared.searchDoctors(for: searchString, near: location, lastKey: lastKey, onSuccess: { (doctors, lastKey) in
+                guard !self.isCanceled else {
+                    return
+                }
                 self.delegate?.dataController(self, didLoadData: doctors)
                 self.lastKey = lastKey
             }) { error in
+                guard !self.isCanceled else {
+                    return
+                }
                 self.lastKey = nil
             }
         } catch {
+            guard !isCanceled else {
+                return
+            }
             self.lastKey = nil
         }
+    }
+    
+    func cancel() {
+        isCanceled = true
+        delegate?.dataControllerDidCancel(self)
+
+        guard let searchTask = searchTask, !searchTask.progress.isFinished else {
+            return
+        }
+        
+        searchTask.cancel()
     }
 }
 

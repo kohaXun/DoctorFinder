@@ -60,6 +60,10 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IT-Ih-cZ6" customClass="LoadingView" customModule="DoctorFinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
@@ -67,10 +71,14 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="AOf-qz-IjB" firstAttribute="trailing" secondItem="eXx-RK-ZUk" secondAttribute="trailing" constant="16" id="5lc-Jd-gyC"/>
+                            <constraint firstItem="8IT-Ih-cZ6" firstAttribute="trailing" secondItem="AOf-qz-IjB" secondAttribute="trailing" id="EdN-Zb-QS0"/>
                             <constraint firstItem="eXx-RK-ZUk" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" constant="16" id="I5y-wH-F3N"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="trailing" secondItem="AOf-qz-IjB" secondAttribute="trailing" id="On9-Q0-ZIU"/>
+                            <constraint firstItem="8IT-Ih-cZ6" firstAttribute="bottom" secondItem="AOf-qz-IjB" secondAttribute="bottom" id="Q0a-QE-cPY"/>
                             <constraint firstItem="eXx-RK-ZUk" firstAttribute="top" secondItem="XrP-4d-Ehy" secondAttribute="bottom" constant="21" id="QLf-DH-gdK"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" id="cjL-O1-6k0"/>
+                            <constraint firstItem="8IT-Ih-cZ6" firstAttribute="leading" secondItem="AOf-qz-IjB" secondAttribute="leading" id="eY5-5L-L3r"/>
+                            <constraint firstItem="8IT-Ih-cZ6" firstAttribute="top" secondItem="gxE-Fb-mmI" secondAttribute="top" id="fAc-QE-LFU"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="top" secondItem="gxE-Fb-mmI" secondAttribute="top" id="fC2-nq-n4h"/>
                             <constraint firstItem="FrN-jZ-zBq" firstAttribute="bottom" secondItem="AOf-qz-IjB" secondAttribute="bottom" id="mhv-ZC-fXT"/>
                             <constraint firstItem="XrP-4d-Ehy" firstAttribute="centerX" secondItem="gxE-Fb-mmI" secondAttribute="centerX" id="oWn-Bb-dEy"/>
@@ -80,6 +88,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="DoctorFinder" id="CuR-4T-UkK"/>
                     <connections>
+                        <outlet property="loadingView" destination="8IT-Ih-cZ6" id="9Ti-TL-tf0"/>
                         <outlet property="searchResultsContainerView" destination="FrN-jZ-zBq" id="cGg-rB-qBW"/>
                     </connections>
                 </viewController>
